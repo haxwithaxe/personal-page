@@ -3,6 +3,9 @@
    <head>
       <title>Koepke's Start Page</title>
       <!--meta-->
+      <meta http-equiv="cache-control" content="no-cache">
+      <meta http-equiv="pragma" content="no-cache">
+      <meta http-equiv="expires" content="-1">
       <style type="text/css">
          <!--
          body {
@@ -26,31 +29,14 @@
          a:active { 
             color: grey;
 	 }
-
-	 #rssbox{
-	   width: 450px;
-	   border: none;
-	   padding: 5px;
-	   background-color: darkolive;
-	}
-
-	#ftitle{
-	  font-weight: bold;
-	  color: green;
-	}
-
-	#etitle{
-	  font-weight: normal;
-	  color: lightgray;
-	}
 	#chan_items { 
-	  margin: 20px; 
+	  margin: 10px; 
 	}
 	#chan_items #item { 
-	  margin-bottom: 10px; 
+	  margin-bottom: 5px; 
 	}
 	#chan_items #item #item_title { 
-	  font-weight: bold; 
+	  font-weight: normal; 
 	}
         -->
       </style>
@@ -80,7 +66,7 @@
       </script>
       <script type="text/javascript" src="/js/rssajax.js"></script>
    </head>
-   <body onload="update24hrClock();">
+   <body onload="update24hrClock(); getRSS(); return false; setinterval(getRSS(), 600)">
       <table>
 	 <table width='100%' align=right>
 	    <tr>
