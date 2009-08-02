@@ -149,7 +149,6 @@ function RSS2Channel(rssxml)
 	{
 		Item = new RSS2Item(itemElements[i]);
 		this.items.push(Item);
-		//chanElement.removeChild(itemElements[i]);
 	}
 
 	var properties = new Array("title", /*"link", "description",*/ "language", "copyright", "managingEditor", "webMaster", "pubDate", "lastBuildDate", "generator", "docs", "ttl", "rating");
@@ -218,9 +217,10 @@ function showRSS(RSS)
 	var imageTag = "<img id='chan_image'";
 	var startItemTag = "<div id='item'>";
 	var startTitle = "<div id='item_title'>";
-	var startLink = "<div id='item_link'>";
+	var startLink = "<a id='item_link' href='";
 	var startDescription = "<div id='item_description'>";
 	var endTag = "</div>";
+	var endLink = "'>link</a>";
 
 	//populate channel data
 	var properties = new Array("title","description","pubDate","copyright");
@@ -244,14 +244,6 @@ function showRSS(RSS)
 			+"' src='"+RSS.image.url
 			+"' "+"/>";
 	}
-	document.getElementById("chan_link").innerHTML = "";
-	if (RSS.item.link != null)
-	{
-		document.getElementById("chan_link").href = RSS.item.link;
-		document.getElementById("chan_link").innerHTML = "link"
-			+"' src='"+RSS.item.link
-			+"' "+"/>";
-	}
 
 	//populate the items
 	document.getElementById("chan_items").innerHTML = "";
@@ -259,14 +251,13 @@ function showRSS(RSS)
 	{
 		item_html = startItemTag;
 		item_html += (RSS.items[i].title == null) ? "" : startTitle + RSS.items[i].title + endTag;
-		item_html += (RSS.items[i].link == null) ? "" : startLink + RSS.items[i].link + endTag;
+		item_html += (RSS.items[i].link == null) ? "" : startLink + RSS.items[i].link + endLink;
 		item_html += (RSS.items[i].description == null) ? "" : startDescription + RSS.items[i].description + endTag;
 		item_html += endTag;
 		document.getElementById("chan_items").innerHTML += item_html;
 	}
 
 	//we're done
-	//document.getElementById("chan").style.visibility = "visible";
 	return true;
 }
 
