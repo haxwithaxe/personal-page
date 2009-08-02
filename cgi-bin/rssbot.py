@@ -1,25 +1,20 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-import feedparser, string, cgitb
-cgitb.enable()
+import os
 
-FEEDS = ['http://feeds.feedburner.com/Twitter/MannkoepkeWithFriends?format=xml','http://feeds.feedburner.com/darknethackers?format=xml']
+FEEDS = [
+      ['http://feeds.feedburner.com/Twitter/MannkoepkeWithFriends?format=xml','twitter.xml'],
+      ['http://feeds.feedburner.com/darknethackers?format=xml','darknet.xml'],
+      ['http://www.google.com','work/innove.xml'],
+      ['http://www.google.com','work/wps.xml']
+      ]
 
-def rss(feeds):
-   r = ''
-   for i in feeds:
-      f = feedparser.parse(i)
-      e = f.entries
-      r += '<div id=rssbox>'
-      r += ('<span id=ftitle>'+f.feed.title +'</b><br/>')
-      for o in e:
-	 r += ('<span id=etitle>'+o.title+'</span><a href="'+o.link+'">link</a><br/>')
-   r += '</div>'
-   return r
+def rss(feed):
+   get_cmd = 'wget '+feed[0]+' -O /var/www/feeds/'+feed[1]
+   if os.system(get_cmd):
+      pass
+   else:
+      return 'GET_ERROR'
 
-rssOut = "document.write('%s');" % rss(FEEDS)
-
-print("Content-Type: text/html\n")
-
-
-print(rssOut.decode('utf-8', 'ignore'))
+for i in FEEDS:
+   rss(i)
