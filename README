@@ -5,6 +5,7 @@ DONE:
 - keep browser from caching dynamic content
 
 TODO:
+- load rss part of page periodically without reloading the whole page
 - scoll the rss feeds ala google dynamic feed controler(would be nice)
 - todo list form with check boxes for status od items
 - reminders list with ability to add/remove items through page

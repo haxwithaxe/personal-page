@@ -65,6 +65,27 @@
 	    //-->
       </script>
       <script type="text/javascript" src="/js/rssajax.js"></script>
+      <script type="text/javascript">
+	 Event.observe(  window, 
+	    'load', 
+	    function() 
+	    { 
+	    new Ajax.PeriodicalUpdater( 'allrssdiv', 
+	       'start.py?uchi=0&sore=0', 
+		  { 
+		     frequency: 600, 
+		     requestHeaders: { 
+			"Pragma":            "no-cache", 
+			"Cache-Control":     "no-store, no-cache, must-revalidate, post-check=0, pre-check=0", 
+			"Expires":           0, 
+			"Last-Modified":     new Date(0), // January 1, 1970 
+			"If-Modified-Since": new Date(0) 
+		     } 
+		  }
+	       ); 
+	    } 
+	 ); 
+      </script>
    </head>
    <body onload="update24hrClock(); getRSS(); return false; setinterval(getRSS(), 600);">
       <table>
@@ -125,23 +146,25 @@
 	    <td align='left' valign='top'>
 	       <h5>RSS</h5>
 	       <table>
-		  <span id="rss">&nbsp;</span>
-		  <form name="rssform" onsubmit="getRSS(); return false;">
-		     <select name="rssurl">
-		     <option value="/feeds/twitter.xml">Twitter</option>
-		     <option value="/feeds/darknet.xml">DarkNet</option>
-		     </select>
-		  <input type="submit" value="fetch rss feed" />
-		  </form>
-	       <!--Do Not Touch This-------------------------------------------------->
-		  <div class="rss" id="chan">
-		     <div id="chan_title"></div>
-		     <div id="chan_link"></div>
-		     <div id="chan_description"></div>
-		     <a id="chan_image_link" href=""></a>
-		     <div id="chan_items"></div>
-		     <div id="chan_pubDate"></div>
-		     <div id="chan_copyright"></div>
+		  <div id="allrssdiv">
+		     <span id="rss">&nbsp;</span>
+		     <form name="rssform" onsubmit="getRSS(); return false;">
+			<select name="rssurl">
+			<option value="/feeds/twitter.xml">Twitter</option>
+			<option value="/feeds/darknet.xml">DarkNet</option>
+			</select>
+		     <input type="submit" value="fetch rss feed" />
+		     </form>
+		  <!--Do Not Touch This-------------------------------------------------->
+		     <div class="rss" id="chan">
+			<div id="chan_title"></div>
+			<div id="chan_link"></div>
+			<div id="chan_description"></div>
+			<a id="chan_image_link" href=""></a>
+			<div id="chan_items"></div>
+			<div id="chan_pubDate"></div>
+			<div id="chan_copyright"></div>
+		     </div>
 		  </div>
 	       </table>
 	    </td>

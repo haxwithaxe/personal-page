@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 import os
 
+print('content-type: text/html\n')
+
 FEEDS = [
       ['http://feeds.feedburner.com/Twitter/MannkoepkeWithFriends?format=xml','twitter.xml'],
       ['http://feeds.feedburner.com/darknethackers?format=xml','darknet.xml'],
