@@ -167,7 +167,7 @@ function RSS2Channel(rssxml)
 //PROCESSES
 
 //uses xmlhttpreq to get the raw rss xml
-function getRSS()
+function getRSS(feed)
 {
 	//call the right constructor for the browser being used
 	if (window.ActiveXObject)
@@ -178,7 +178,7 @@ function getRSS()
 		alert("not supported");
 
 	//prepare the xmlhttprequest object
-	xhr.open("GET",document.rssform.rssurl.value,true);
+	xhr.open("GET",feed,true);
 	xhr.setRequestHeader("Cache-Control", "no-cache");
 	xhr.setRequestHeader("Pragma", "no-cache");
 	xhr.onreadystatechange = function() {

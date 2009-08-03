@@ -1,5 +1,5 @@
 #!/bin/bash
-Time=540
+Time=240
 while true; do
 	if ping -c3 www.google.com 2>&1 >/dev/null
 		then

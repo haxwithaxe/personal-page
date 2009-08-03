@@ -8,36 +8,56 @@
       <meta http-equiv="expires" content="-1">
       <style type="text/css">
          <!--
-         body {
-            background : #010101;
+	 html {
+	    overflow-y : hidden;
+	 }
+	 body {
+	    overflow-y : auto;
+	    margin : 0;
+	    padding : 0;
+	    height : 100%;
+	    width : 100%;
+	    background : #010101 url(/imgs/bg.png) no-repeat fixed 0 0;
+	    background-size: 100%;
             color : lightgrey;
 	    font-variant : small-caps;
 	    font-weight : normal;
 	    font-family : Sans;
-         }
-         a:link { 
+	 }
+         a:link {
             color: green;
          }
-         a:visited { 
+         a:visited {
             color: grey;
          }
-         a:hover { 
+         a:hover {
             color: green;
             background-color: grey;
             text-decoration: none;
          }
-         a:active { 
+         a:active {
             color: grey;
 	 }
-	#chan_items { 
-	  margin: 10px; 
+	#chan_items {
+	  margin: 10px;
 	}
-	#chan_items #item { 
-	  margin-bottom: 5px; 
+	#chan_items #item {
+	  margin-bottom: 5px;
 	}
-	#chan_items #item #item_title { 
-	  font-weight: normal; 
+	#chan_items #item #item_title {
+	  font-weight: normal;
 	}
+	#bg {
+	    position : absolute;
+	    z-index : -1;
+	    height : 100%;
+	    width : 100%
+	 }
+	 #content {
+	    position : static; center;
+	    margin : 20;
+	    padding : 20;
+	 }
         -->
       </style>
       <script type="text/javascript">
@@ -66,112 +86,90 @@
       </script>
       <script type="text/javascript" src="/js/rssajax.js"></script>
       <script type="text/javascript">
-	 Event.observe(  window, 
-	    'load', 
-	    function() 
-	    { 
-	    new Ajax.PeriodicalUpdater( 'allrssdiv', 
-	       'start.py?uchi=0&sore=0', 
-		  { 
-		     frequency: 600, 
-		     requestHeaders: { 
-			"Pragma":            "no-cache", 
-			"Cache-Control":     "no-store, no-cache, must-revalidate, post-check=0, pre-check=0", 
-			"Expires":           0, 
-			"Last-Modified":     new Date(0), // January 1, 1970 
-			"If-Modified-Since": new Date(0) 
-		     } 
-		  }
-	       ); 
-	    } 
-	 ); 
+	 window.onload=function(){
+	    setInterval("getRSS('/feeds/twitter.xml')", 300000)
+	 }
       </script>
    </head>
-   <body onload="update24hrClock(); getRSS(); return false; setinterval(getRSS(), 600);">
-      <table>
-	 <table  id="topBanner" width='100%' align=right>
-	    <tr>
-	       <td align=left>
-	       <h3>Hello...</h3><br/>
-	       <h4>What can I do for you today?</h4>
+   <body onload="update24hrClock(); getRSS('/feeds/twitter.xml');">
+	  <table>
+	    <table  id="topBanner" width='100%' align=right>
+	       <tr>
+	     <td align=left>
+	     <h3>Hello...</h3><br/>
+	     <h4>What can I do for you today?</h4>
+	     </td>
+	     <td align=right>
+		<div style="text-align: center; margin: 20px auto;">
+		   <span id="24hrclock" style="font-family: Arial, Helvetica, sans-serif; font-size: 40pt; color: white; background-color: black; border: 2px solid white; padding: 4px;">&nbsp;</span>
+		</div>
+	     </td>
+	       </tr>
+	    </table>
+	    <table>
+	       <td width='400px' align='left' valign='top'>
+	     <h5>Search</h5>
+	     <FORM method=GET action="http://www.google.com/search">
+		<input type=hidden name=ie value=UTF-8>
+		<input type=hidden name=oe value=UTF-8>
+		<INPUT TYPE=text name=q size=25 maxlength=255 value="">
+		<INPUT type=submit name=btnG VALUE="Google Search">
+	     </FORM>
+	     <FORM method=GET action="http://www01.wolframalpha.com/input/">
+		<INPUT TYPE=text name=i size=25 maxlength=255 value="">
+		<INPUT type=submit VALUE="WolframAlpha Search">
+	     </FORM>
+	     <FORM method=GET action="http://www.torrentz.com/search">
+		<INPUT TYPE=text name=q size=25 maxlength=255 value="">
+		<INPUT type=submit VALUE="Torrentz Search">
+	     </FORM>
+	     <FORM method=GET action="http://www.findsounds.com/ISAPI/search.dll">
+		<INPUT TYPE=text name=keywords size=25 maxlength=255 value="">
+		<INPUT type=submit VALUE="FindSounds Search">
+	     </FORM>
+	     <FORM method=GET action="http://news.google.com/archivesearch">
+		<input type=hidden name=ie value=UTF-8>
+		<input type=hidden name=oe value=UTF-8>
+		<INPUT TYPE=text name=q size=25 maxlength=255 value="">
+		<INPUT type=submit name=btnG VALUE="Google News Search">
+	     </FORM>
+	     <FORM method=GET action="http://www.google.com/search">
+		<input type=hidden name=ie value=UTF-8>
+		<input type=hidden name=oe value=UTF-8>
+		<input type=hidden name=as_filetype value=pdf>
+		<INPUT TYPE=text name=q size=25 maxlength=255 value="">
+		<INPUT type=submit name=btnG VALUE="Google PDF Search">
+	     </FORM>
+	     <h5>Links</h5>
+		<!--links-->
+	     <h5>ToDo</h5>
+		<!--todo-->
+	     <h5>Reminders</h5>
+		<!--reminders-->
 	       </td>
-	       <td align=right>
-		  <div style="text-align: center; margin: 20px auto;">
-		     <span id="24hrclock" style="font-family: Arial, Helvetica, sans-serif; font-size: 40pt; color: white; background-color: black; border: 2px solid white; padding: 4px;">&nbsp;</span>
-	          </div>
+	       <td align='left' valign='top'>
+	     <h5>RSS</h5>
+	     <table>
+		<div id="allrssdiv" style="background : url(/imgs/darkgreybox.gif) repeat; background-size: 100%;">
+		   <span id="rss">&nbsp;</span>
+   <!--Do Not Touch This-------------------------------------------------->
+		   <div class="rss" id="chan">
+		      <div id="chan_title"></div>
+		      <div id="chan_link"></div>
+		      <div id="chan_description"></div>
+		      <a id="chan_image_link" href=""></a>
+		      <div id="chan_items"></div>
+		      <div id="chan_pubDate"></div>
+		      <div id="chan_copyright"></div>
+		   </div>
+		</div>
+	     </table>
 	       </td>
-	    </tr>
+	    </table>
+	    <table>
+	       <!--footer-->
+	    </table>
 	 </table>
-	 <table>
-	    <td width='400px' align='left' valign='top'>
-	       <h5>Search</h5>
-	       <FORM method=GET action="http://www.google.com/search">
-		  <input type=hidden name=ie value=UTF-8>
-		  <input type=hidden name=oe value=UTF-8>
-		  <INPUT TYPE=text name=q size=25 maxlength=255 value="">
-		  <INPUT type=submit name=btnG VALUE="Google Search">
-	       </FORM>
-	       <FORM method=GET action="http://www01.wolframalpha.com/input/">
-		  <INPUT TYPE=text name=i size=25 maxlength=255 value="">
-		  <INPUT type=submit VALUE="WolframAlpha Search">
-	       </FORM>
-	       <FORM method=GET action="http://www.torrentz.com/search">
-		  <INPUT TYPE=text name=q size=25 maxlength=255 value="">
-		  <INPUT type=submit VALUE="Torrentz Search">
-	       </FORM>
-	       <FORM method=GET action="http://www.findsounds.com/ISAPI/search.dll">
-		  <INPUT TYPE=text name=keywords size=25 maxlength=255 value="">
-		  <INPUT type=submit VALUE="FindSounds Search">
-	       </FORM>
-	       <FORM method=GET action="http://news.google.com/archivesearch">
-		  <input type=hidden name=ie value=UTF-8>
-		  <input type=hidden name=oe value=UTF-8>
-		  <INPUT TYPE=text name=q size=25 maxlength=255 value="">
-		  <INPUT type=submit name=btnG VALUE="Google News Search">
-	       </FORM>
-	       <FORM method=GET action="http://www.google.com/search">
-		  <input type=hidden name=ie value=UTF-8>
-		  <input type=hidden name=oe value=UTF-8>
-		  <input type=hidden name=as_filetype value=pdf>
-		  <INPUT TYPE=text name=q size=25 maxlength=255 value="">
-		  <INPUT type=submit name=btnG VALUE="Google PDF Search">
-	       </FORM>
-	       <h5>Links</h5>
-		  <!--links-->
-	       <h5>ToDo</h5>
-		  <!--todo-->
-	       <h5>Reminders</h5>
-		  <!--reminders-->
-	    </td>
-	    <td align='left' valign='top'>
-	       <h5>RSS</h5>
-	       <table>
-		  <div id="allrssdiv">
-		     <span id="rss">&nbsp;</span>
-		     <form name="rssform" onsubmit="getRSS(); return false;">
-			<select name="rssurl">
-			<option value="/feeds/twitter.xml">Twitter</option>
-			<option value="/feeds/darknet.xml">DarkNet</option>
-			</select>
-		     <input type="submit" value="fetch rss feed" />
-		     </form>
-		  <!--Do Not Touch This-------------------------------------------------->
-		     <div class="rss" id="chan">
-			<div id="chan_title"></div>
-			<div id="chan_link"></div>
-			<div id="chan_description"></div>
-			<a id="chan_image_link" href=""></a>
-			<div id="chan_items"></div>
-			<div id="chan_pubDate"></div>
-			<div id="chan_copyright"></div>
-		     </div>
-		  </div>
-	       </table>
-	    </td>
-	 </table>
-	 <table>
-	    <!--footer-->
-	 </table>
-      </table>
+      </div>
    </body>
 </html>
