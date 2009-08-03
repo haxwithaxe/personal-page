@@ -3,9 +3,11 @@
    <head>
       <title>Koepke's Start Page</title>
       <!--meta-->
-      <meta http-equiv="cache-control" content="no-cache">
+      <meta http-equiv="cache-control" content="no-store, no-cache, must-revalidate, post-check=0, pre-check=0">
       <meta http-equiv="pragma" content="no-cache">
-      <meta http-equiv="expires" content="-1">
+      <meta http-equiv="expires" content="0">
+      <meta http-equiv="last-modified" content="January 1, 1970">
+      <meta http-equiv="if-modified-since" content="January 1, 1970">
       <style type="text/css">
          <!--
 	 html {
@@ -85,13 +87,13 @@
 	    //-->
       </script>
       <script type="text/javascript" src="/js/rssajax.js"></script>
+      <script type="text/javascript" src="/js/prototype.js"></script>
       <script type="text/javascript">
-	 window.onload=function(){
-	    setInterval("getRSS('/feeds/twitter.xml')", 300000)
-	 }
+	 gettwit = getRSS('/feeds/twitter.xml');
+	 new PeriodicalExecuter(gettwit, 3);
       </script>
    </head>
-   <body onload="update24hrClock(); getRSS('/feeds/twitter.xml');">
+   <body onload="update24hrClock();"><!-- getRSS('/feeds/twitter.xml');"-->
 	  <table>
 	    <table  id="topBanner" width='100%' align=right>
 	       <tr>
