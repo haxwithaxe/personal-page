@@ -1,8 +1,12 @@
 This is my dev repo for my personal home page please do not edit without permission.
-TODO:
+DONE:
 - load rss feeds on page load: 'onload="getRSS();"' type thing
 - load links as <a href="chan_link">link</a>
+- keep browser from caching dynamic content
+
+TODO:
 - scoll the rss feeds ala google dynamic feed controler(would be nice)
 - todo list form with check boxes for status od items
 - reminders list with ability to add/remove items through page
 - same with link section
+- bg img and top banner img

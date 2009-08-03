@@ -68,88 +68,87 @@
    </head>
    <body onload="update24hrClock(); getRSS(); return false; setinterval(getRSS(), 600);">
       <table>
-	 <table width='100%' align=right>
+	 <table  id="topBanner" width='100%' align=right>
 	    <tr>
 	       <td align=left>
-		  <h3>Hello...</h3><br/>
-		  <h4>What can I do for you today?</h4>
+	       <h3>Hello...</h3><br/>
+	       <h4>What can I do for you today?</h4>
 	       </td>
 	       <td align=right>
 		  <div style="text-align: center; margin: 20px auto;">
 		     <span id="24hrclock" style="font-family: Arial, Helvetica, sans-serif; font-size: 40pt; color: white; background-color: black; border: 2px solid white; padding: 4px;">&nbsp;</span>
-		  </div>
+	          </div>
 	       </td>
 	    </tr>
 	 </table>
-      <table>
-         <td width='400px' align='left' valign='top'>
-            <h5>Search</h5>
-               <FORM method=GET action="http://www.google.com/search">
-                  <input type=hidden name=ie value=UTF-8>
-                  <input type=hidden name=oe value=UTF-8>
-                  <INPUT TYPE=text name=q size=25 maxlength=255 value="">
-                  <INPUT type=submit name=btnG VALUE="Google Search">
-               </FORM>
-               <FORM method=GET action="http://www01.wolframalpha.com/input/">
-                  <INPUT TYPE=text name=i size=25 maxlength=255 value="">
-                  <INPUT type=submit VALUE="WolframAlpha Search">
-               </FORM>
-               <FORM method=GET action="http://www.torrentz.com/search">
-                  <INPUT TYPE=text name=q size=25 maxlength=255 value="">
-                  <INPUT type=submit VALUE="Torrentz Search">
-               </FORM>
-               <FORM method=GET action="http://www.findsounds.com/ISAPI/search.dll">
-                  <INPUT TYPE=text name=keywords size=25 maxlength=255 value="">
-                  <INPUT type=submit VALUE="FindSounds Search">
-               </FORM>
-               <FORM method=GET action="http://news.google.com/archivesearch">
-                  <input type=hidden name=ie value=UTF-8>
-                  <input type=hidden name=oe value=UTF-8>
-                  <INPUT TYPE=text name=q size=25 maxlength=255 value="">
-                  <INPUT type=submit name=btnG VALUE="Google News Search">
-               </FORM>
-               <FORM method=GET action="http://www.google.com/search">
-                  <input type=hidden name=ie value=UTF-8>
-                  <input type=hidden name=oe value=UTF-8>
-                  <input type=hidden name=as_filetype value=pdf>
-                  <INPUT TYPE=text name=q size=25 maxlength=255 value="">
-                  <INPUT type=submit name=btnG VALUE="Google PDF Search">
-               </FORM>
-            <h5>Links</h5>
-               <!--links-->
-            <h5>ToDo</h5>
-               <!--todo-->
-            <h5>Reminders</h5>
-               <!--reminders-->
-         </td>
-         <td align='left' valign='top'>
-            <h5>RSS</h5>
-               <table>
+	 <table>
+	    <td width='400px' align='left' valign='top'>
+	       <h5>Search</h5>
+	       <FORM method=GET action="http://www.google.com/search">
+		  <input type=hidden name=ie value=UTF-8>
+		  <input type=hidden name=oe value=UTF-8>
+		  <INPUT TYPE=text name=q size=25 maxlength=255 value="">
+		  <INPUT type=submit name=btnG VALUE="Google Search">
+	       </FORM>
+	       <FORM method=GET action="http://www01.wolframalpha.com/input/">
+		  <INPUT TYPE=text name=i size=25 maxlength=255 value="">
+		  <INPUT type=submit VALUE="WolframAlpha Search">
+	       </FORM>
+	       <FORM method=GET action="http://www.torrentz.com/search">
+		  <INPUT TYPE=text name=q size=25 maxlength=255 value="">
+		  <INPUT type=submit VALUE="Torrentz Search">
+	       </FORM>
+	       <FORM method=GET action="http://www.findsounds.com/ISAPI/search.dll">
+		  <INPUT TYPE=text name=keywords size=25 maxlength=255 value="">
+		  <INPUT type=submit VALUE="FindSounds Search">
+	       </FORM>
+	       <FORM method=GET action="http://news.google.com/archivesearch">
+		  <input type=hidden name=ie value=UTF-8>
+		  <input type=hidden name=oe value=UTF-8>
+		  <INPUT TYPE=text name=q size=25 maxlength=255 value="">
+		  <INPUT type=submit name=btnG VALUE="Google News Search">
+	       </FORM>
+	       <FORM method=GET action="http://www.google.com/search">
+		  <input type=hidden name=ie value=UTF-8>
+		  <input type=hidden name=oe value=UTF-8>
+		  <input type=hidden name=as_filetype value=pdf>
+		  <INPUT TYPE=text name=q size=25 maxlength=255 value="">
+		  <INPUT type=submit name=btnG VALUE="Google PDF Search">
+	       </FORM>
+	       <h5>Links</h5>
+		  <!--links-->
+	       <h5>ToDo</h5>
+		  <!--todo-->
+	       <h5>Reminders</h5>
+		  <!--reminders-->
+	    </td>
+	    <td align='left' valign='top'>
+	       <h5>RSS</h5>
+	       <table>
 		  <span id="rss">&nbsp;</span>
 		  <form name="rssform" onsubmit="getRSS(); return false;">
 		     <select name="rssurl">
-			<option value="/feeds/twitter.xml">Twitter</option>
-			<option value="/feeds/darknet.xml">DarkNet</option>
+		     <option value="/feeds/twitter.xml">Twitter</option>
+		     <option value="/feeds/darknet.xml">DarkNet</option>
 		     </select>
-		     <input type="submit" value="fetch rss feed" />
+		  <input type="submit" value="fetch rss feed" />
 		  </form>
-<!--Do Not Touch This-------------------------------------------------->
+	       <!--Do Not Touch This-------------------------------------------------->
 		  <div class="rss" id="chan">
-		      <div id="chan_title"></div>
-		      <div id="chan_link"></div>
-		      <div id="chan_description"></div>
-		      <a id="chan_image_link" href=""></a>
-		      <div id="chan_items"></div>
-		      <div id="chan_pubDate"></div>
-		      <div id="chan_copyright"></div>
+		     <div id="chan_title"></div>
+		     <div id="chan_link"></div>
+		     <div id="chan_description"></div>
+		     <a id="chan_image_link" href=""></a>
+		     <div id="chan_items"></div>
+		     <div id="chan_pubDate"></div>
+		     <div id="chan_copyright"></div>
 		  </div>
-               </table>
-         </td>
-      </table>
-      <!--<table>
-         <h5>Private Area</h5>
-            <a width=10px hieght=10px href='/DojBoumCuCaHucOmWiljicecMedyifMudgutUfOkCol'></a>
-      </table>-->
+	       </table>
+	    </td>
+	 </table>
+	 <table>
+	    <!--footer-->
+	 </table>
       </table>
    </body>
 </html>
