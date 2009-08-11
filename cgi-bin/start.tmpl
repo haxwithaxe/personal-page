@@ -89,11 +89,13 @@
       <script type="text/javascript" src="/js/rssajax.js"></script>
       <script type="text/javascript" src="/js/prototype.js"></script>
       <script type="text/javascript">
-	 gettwit = getRSS('/feeds/twitter.xml');
-	 new PeriodicalExecuter(gettwit, 3);
+	 function gettwit(){ getRSS('/feeds/twitter.xml'); };
+	 setInterval("gettwit()", 1000);
+	 //clearInterval(gettwit)
+	 //setInterval(gettwit, 600000);
       </script>
    </head>
-   <body onload="update24hrClock();"><!-- getRSS('/feeds/twitter.xml');"-->
+   <body onload="getfeeds();"><!-- getRSS('/feeds/twitter.xml');"-->
 	  <table>
 	    <table  id="topBanner" width='100%' align=right>
 	       <tr>

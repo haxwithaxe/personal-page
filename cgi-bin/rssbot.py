@@ -12,7 +12,7 @@ FEEDS = [
       ]
 
 def rss(feed):
-   get_cmd = 'wget '+feed[0]+' -O /var/www/feeds/'+feed[1]
+   get_cmd = 'wget -q '+feed[0]+' -O /var/www/feeds/'+feed[1]
    if os.system(get_cmd):
       pass
    else:
