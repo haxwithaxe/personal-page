@@ -217,7 +217,7 @@ function showRSS(RSS)
 	var imageTag = "<img id='chan_image'";
 	var startItemTag = "<div id='item'>";
 	var startTitle = "<div id='item_title'>";
-	var startLink = "<a id='item_link' href='";
+	var startLink = "<a id='item_link' target='_blank' href='";
 	var startDescription = "<div id='item_description'>";
 	var endTag = "</div>";
 	var endLink = "'>link</a>";
