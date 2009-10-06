@@ -91,28 +91,24 @@
 	    setInterval('update24hrClock()', 1000 );
 	    //-->
       </script>
-      <script type="text/javascript" src="/js/rssajax.js"></script>
-      <script type="text/javascript" src="/js/prototype.js"></script>
+      <script type="text/javascript" src="/js/jquery.min.js"></script>
       <script type="text/javascript">
-	 function gettwit(){ getRSS('/feeds/twitter.xml'); };
-	 setInterval("gettwit()", 1000);
-	 //clearInterval(gettwit)
-	 //setInterval(gettwit, 600000);
+	 setInterval(function(){$("#allrssdiv").load("/cgi-bin/rssbot.py");}, 60000);
       </script>
    </head>
-   <body onload="getfeeds();"><!-- getRSS('/feeds/twitter.xml');"-->
+   <body>
 	  <table>
 	    <table  id="topBanner" width='100%' align=right>
 	       <tr>
-	     <td align=left>
-	     <h3>Hello...</h3><br/>
-	     <h4>What can I do for you today?</h4>
-	     </td>
-	     <td align=right>
-		<div style="text-align: center; margin: 20px auto;">
-		   <span id="24hrclock" style="font-family: Arial, Helvetica, sans-serif; font-size: 40pt; color: white; background-color: black; border: 2px solid white; padding: 4px;">&nbsp;</span>
-		</div>
-	     </td>
+		  <td align=left>
+		     <h3>Hello...</h3><br/>
+		     <h4>What can I do for you today?</h4>
+		  </td>
+		  <td align=right>
+		     <div style="text-align: center; margin: 20px auto;">
+		       <span id="24hrclock" style="font-family: Arial, Helvetica, sans-serif; font-size: 40pt; color: white; background-color: black; border: 2px solid white; padding: 4px;">&nbsp;</span>
+		     </div>
+		  </td>
 	       </tr>
 	    </table>
 	    <table>
@@ -150,35 +146,28 @@
 		<INPUT type=submit name=btnG VALUE="Google PDF Search">
 	     </FORM>
 	     <h5>Links</h5>
-		<!--links-->
+		<div id="links"></div>
 	     <h5>ToDo</h5>
-		<!--todo-->
+		<div id="todo"></div>
 	     <h5>Reminders</h5>
-		<!--reminders-->
+		<div id="reminders"></div>
 	       </td>
 	       <td align='left' valign='top'>
-	     <h5>RSS</h5>
-	     <table>
-		<div id="allrssdiv" class="frame" style="background : url(/imgs/darkgreybox.gif) repeat; background-size: 100%;">
-		   <span id="rss">&nbsp;</span>
-   <!--Do Not Touch This-------------------------------------------------->
-		   <div class="rss" id="chan">
-		      <div id="chan_title"></div>
-		      <div id="chan_link"></div>
-		      <div id="chan_description"></div>
-		      <a id="chan_image_link" href=""></a>
-		      <div id="chan_items"></div>
-		      <div id="chan_pubDate"></div>
-		      <div id="chan_copyright"></div>
-		   </div>
-		</div>
-	     </table>
+		  <h5>RSS</h5>
+		  <div id="allrssdiv" class="frame" style="background : url(/imgs/darkgreybox.gif) repeat; background-size: 100%;">
+		     <div id="rss">
+		        &nbsp;
+		     </div>
+		  </div>
 	       </td>
 	    </table>
 	    <table>
-	       <!--footer-->
+	       <div id="footer"></div>
 	    </table>
 	 </table>
+      <script type="text/javascript">
+	 $("#allrssdiv").load("/cgi-bin/rssbot.py");
+      </script>
       </div>
    </body>
 </html>
