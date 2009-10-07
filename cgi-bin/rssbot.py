@@ -3,7 +3,7 @@
 import feedparser, string, cgitb
 cgitb.enable()
 
-FEEDS = ['http://mannkoepke:mytvv1tt3r@twitter.com/statuses/friends_timeline/15577540.rss']
+FEEDS = ['http://mannkoepke:password@twitter.com/statuses/friends_timeline/15577540.rss']
 
 def rss(feeds):
    r = ''
