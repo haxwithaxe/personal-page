@@ -54,15 +54,14 @@
          #inline:active {
             color: green;
 	 }
-	#etitle {
-	  margin: 10px;
-	}
-	#etitle {
+	#ftitle {
 	  margin-bottom: 5px;
 	}
 	#etitle #ftitle {
 	  font-weight: normal;
 	}
+
+
 	#bg {
 	    position : absolute;
 	    z-index : -1;
@@ -127,51 +126,49 @@
 	    </table>
 	    <table>
 	       <td width='400px' align='left' valign='top'>
-	     <h5>Search</h5>
-	     <FORM method=GET action="http://www.google.com/search">
-		<input type=hidden name=ie value=UTF-8>
-		<input type=hidden name=oe value=UTF-8>
-		<INPUT TYPE=text name=q size=25 maxlength=255 value="">
-		<INPUT type=submit name=btnG VALUE="Google Search">
-	     </FORM>
-	     <FORM method=GET action="http://www01.wolframalpha.com/input/">
-		<INPUT TYPE=text name=i size=25 maxlength=255 value="">
-		<INPUT type=submit VALUE="WolframAlpha Search">
-	     </FORM>
-	     <FORM method=GET action="http://www.torrentz.com/search">
-		<INPUT TYPE=text name=q size=25 maxlength=255 value="">
-		<INPUT type=submit VALUE="Torrentz Search">
-	     </FORM>
-	     <FORM method=GET action="http://www.findsounds.com/ISAPI/search.dll">
-		<INPUT TYPE=text name=keywords size=25 maxlength=255 value="">
-		<INPUT type=submit VALUE="FindSounds Search">
-	     </FORM>
-	     <FORM method=GET action="http://news.google.com/archivesearch">
-		<input type=hidden name=ie value=UTF-8>
-		<input type=hidden name=oe value=UTF-8>
-		<INPUT TYPE=text name=q size=25 maxlength=255 value="">
-		<INPUT type=submit name=btnG VALUE="Google News Search">
-	     </FORM>
-	     <FORM method=GET action="http://www.google.com/search">
-		<input type=hidden name=ie value=UTF-8>
-		<input type=hidden name=oe value=UTF-8>
-		<input type=hidden name=as_filetype value=pdf>
-		<INPUT TYPE=text name=q size=25 maxlength=255 value="">
-		<INPUT type=submit name=btnG VALUE="Google PDF Search">
-	     </FORM>
-	     <h5>Links</h5>
-		<div id="links"></div>
-	     <h5>ToDo</h5>
-		<div id="todo"></div>
-	     <h5>Reminders</h5>
-		<div id="reminders"></div>
+		  <h5>Search</h5>
+		  <form target="_blank" method=GET action="http://www.google.com/search">
+		     <input type=hidden name=ie value=UTF-8>
+		     <input type=hidden name=oe value=UTF-8>
+		     <input TYPE=text name=q size=25 maxlength=255 value="">
+		     <input type=submit name=btnG VALUE="Google Search">
+		  </form>
+		  <form target="_blank" method=GET action="http://www01.wolframalpha.com/input/">
+		     <input TYPE=text name=i size=25 maxlength=255 value="">
+		     <input type=submit VALUE="WolframAlpha Search">
+		  </form>
+		  <form target="_blank" method=GET action="http://www.torrentz.com/search">
+		     <input TYPE=text name=q size=25 maxlength=255 value="">
+		     <input type=submit VALUE="Torrentz Search">
+		  </form>
+		  <form target="_blank" method=GET action="http://www.findsounds.com/ISAPI/search.dll">
+		     <input TYPE=text name=keywords size=25 maxlength=255 value="">
+		     <input type=submit VALUE="FindSounds Search">
+		  </form>
+		  <form target="_blank" method=GET action="http://news.google.com/archivesearch">
+		     <input type=hidden name=ie value=UTF-8>
+		     <input type=hidden name=oe value=UTF-8>
+		     <input TYPE=text name=q size=25 maxlength=255 value="">
+		     <input type=submit name=btnG VALUE="Google News Search"> 
+		  </form>
+		  <form target="_blank" method=GET action="http://www.google.com/search">
+		     <input type=hidden name=ie value=UTF-8>
+		     <input type=hidden name=oe value=UTF-8>
+		     <input type=hidden name=as_filetype value=pdf>
+		     <input TYPE=text name=q size=25 maxlength=255 value="">
+		     <input type=submit name=btnG VALUE="Google PDF Search">
+		  </form>
+		  <h5>Links</h5>
+		  <div id="links"></div>
+		  <h5>ToDo</h5>
+		  <div id="todo"></div>
+		     <h5>Reminders</h5>
+		  <div id="reminders"></div>
 	       </td>
 	       <td align='left' valign='top'>
 		  <h5>RSS</h5>
 		  <div id="allrssdiv" class="frame" style="background : url(/imgs/darkgreybox.gif) repeat; background-size: 100%;">
-		     <div id="rss">
-		        &nbsp;
-		     </div>
+		     &nbsp;
 		  </div>
 	       </td>
 	    </table>
