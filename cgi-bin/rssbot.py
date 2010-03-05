@@ -9,7 +9,7 @@ print("Content-Type: text/html\n")
 #
 ########################################################################
 
-FEEDS = ['https://mannkoepke:^^ytvv1tt3r@twitter.com/statuses/friends_timeline/15577540.rss']
+FEEDS = ['https://username:password@twitter.com/statuses/friends_timeline/############.rss']
 urlre = re.compile('http[s]?://[\S]+')
 mailre = re.compile("[a-z,A-Z,.]+@[a-zA-Z_]+?\.[a-zA-Z]{2,6}")
 

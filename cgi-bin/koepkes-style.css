@@ -1,0 +1,98 @@
+html {
+   overflow-y : hidden;
+}
+body {
+   overflow-y : auto;
+   margin : 0;
+   padding : 0;
+   height : 100%;
+   width : 100%;
+   background : #010101 url(/imgs/bg.png) no-repeat fixed 0 0;
+   background-size: 100%;
+   color : lightgrey;
+   font-variant : small-caps;
+   font-weight : normal;
+   font-family : Sans;
+}
+a:link {
+   color: green;
+}
+a:visited {
+   color: grey;
+}
+a:hover {
+   color: green;
+   background-color: grey;
+   text-decoration: none;
+}
+a:active {
+   color: grey;
+}
+#inline:link {
+   color: lightgrey;
+}
+#inline:visited {
+   color: grey;
+}
+#inline:hover {
+   color: lightgrey;
+   background-color: darkgreen;
+   text-decoration: none;
+}
+#inline:active {
+   color: green;
+}
+#ftitle {
+   margin-bottom: 5px;
+}
+#etitle #ftitle {
+   font-weight: normal;
+}
+#bg {
+   position : absolute;
+   z-index : -1;
+   height : 100%;
+   width : 100%
+}
+#content {
+   position : static; center;
+   margin : 20;
+   padding : 20;
+}
+div.frame {
+   background : url(/imgs/darkgreybox.gif) repeat;
+   background-size: 100%;
+   width: 620px;
+   height: 400px;
+   overflow: auto;
+}
+div#content-table {
+   width: 100%;
+   height: 80%;
+   margin: auto;
+   display: table;
+}
+div#content-row-1 {
+   width: 100%;
+   margin: auto;
+   display: table-row;
+}
+div#header-left {
+   width: 30%;
+   display: table-cell;
+   float: left;
+}
+div#header-right {
+   width: 30%;
+   display: table-cell;
+   float: right;
+}
+div#left-col {
+   width: 350px;
+   display: table-cell;
+   margin: auto;
+}
+div#main-col {
+   margin: auto;
+   display: table-cell;
+}
