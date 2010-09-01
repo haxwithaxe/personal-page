@@ -10,7 +10,7 @@ print("Content-Type: text/html\n")
 ########################################################################
 
 FEEDS = ['https://username:password@twitter.com/statuses/friends_timeline/############.rss']
-urlre = re.compile('http[s]?://[\S]+')
+urlre = re.compile('[a-zA-Z]+://[\S]+')
 mailre = re.compile("[a-z,A-Z,.]+@[a-zA-Z_]+?\.[a-zA-Z]{2,6}")
 
 def rss(feeds):
