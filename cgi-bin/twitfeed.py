@@ -1,4 +1,4 @@
-#!/usr/bnein/python
+#!/usr/bin/python
 
 import twitter, re, string
 
