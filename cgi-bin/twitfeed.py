@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import twitter, re, string
+import twitter, sys, re, json
 
 from twitter.oauth import OAuth
 
@@ -34,7 +34,7 @@ def unstash_tweeets():
 
 try:
 
-	twit = twitter.Api.Twitter(auth=OAuth(cred[2],cred[3],cred[0],cred[1]))
+	twit = twitter.api.Twitter(auth=OAuth(cred[2],cred[3],cred[0],cred[1]))
 
 except:
 
@@ -48,13 +48,15 @@ try:
 
 except:
 
+	#print(sys.exc_info())
+
 	try:
 
 		feed = unstash_tweets()
 
 	except:
 
-		feed = {u'user': {u'screen_name': u'tweetypy'}, u'text': u'ut-oh! no feed'}
+		feed = [{u'user': {u'screen_name': u'tweetypy'}, u'text': u'ut-oh! no feed'}]
 
 for t in feed:
 
@@ -72,7 +74,7 @@ for t in feed:
 
 			continue
 
-		mailtos = re.findall(mailre,tweet)
+	mailtos = re.findall(mailre,tweet)
 
 	for m in mailtos:
 
@@ -86,6 +88,6 @@ for t in feed:
 
 	tweet = tweet.encode("utf-8")
 
-	output += '<div id="etitle">'+t['user']+'&lt; '+tweet+'</div>\n'
+	output += '<div id="etitle">'+t['user']['screen_name']+'&lt; '+tweet+'</div>\n'
 
 print(output)
