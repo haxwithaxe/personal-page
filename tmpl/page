@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!--
+
+-->
+<html>
+	<head>
+		<title>haxwithaxe.net</title>
+		<!--META-->
+		<meta http-equiv="cache-control" content="no-store, no-cache, must-revalidate, post-check=0, pre-check=0">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<meta http-equiv="last-modified" content="January 1, 1970">
+		<meta http-equiv="if-modified-since" content="January 1, 1970">
+		<link rel="stylesheet" type="text/css" href="/style/page.css" />
+		<script type="text/javascript" src="/js/clock.js"></script>
+		<script type="text/javascript" src="/js/jquery.min.js"></script>
+		<script type="text/javascript">
+			setInterval(function(){$("#allrssdiv").load("/cgi-bin/twitter.py");}, 60000);
+		</script>
+	</head>
+	<body>
+
+		<div id="content">
+
+			<div id="page-header">
+
+				<div id="header-left">
+					<!--TITLE-->
+				</div>
+
+				<div id="header-right">
+					<span id="24hrclock">&nbsp;</span>
+				</div>
+
+			</div>
+
+			<div id="content-table">
+				<div id="content-row-1">
+
+					<!-- left sidebar -->
+					<div id="left-col">
+						<!--LEFTSIDEBAR-->
+					</div><!-- column -->
+
+					<!-- main column -->
+					<div id="main-col">
+						<!--CONTENT-->
+					</div><!-- column -->
+
+					<!-- right column -->
+					<div id="right-col">
+
+					</div>
+				</div><!-- row -->
+			</div><!-- table -->
+		</div><!-- content -->
+
+		<!-- footer -->
+		<div id="footer">
+			<!--FOOTER-->
+		</div>
+
+		<!-- run stuff once the whole page is loaded -->
+		<script type="text/javascript">
+			$("#allrssdiv").load("/cgi-bin/twitter.py");
+		</script>
+	</body>
+</html>
