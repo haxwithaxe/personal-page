@@ -22,7 +22,7 @@ def stash_tweets(tweets):
 
 	cache.close()
 
-def unstash_tweeets()
+def unstash_tweeets():
 
 	cache = open(CACHE,'r')
 
@@ -74,7 +74,7 @@ for t in feed:
 
 		mailtos = re.findall(mailre,tweet)
 
-		for m in mailtos:
+	for m in mailtos:
 
 		try:
 
