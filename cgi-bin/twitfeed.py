@@ -1,12 +1,13 @@
 #!/usr/bin/python
+# -*- coding: utf8 -*-
 
 import twitter, sys, re, json
 
 from twitter.oauth import OAuth
 
-CACHE = '/tmp/twitter.cache'
+CACHE = u'/tmp/twitter.cache'
 
-output = '<span id="ftitle"><b>RSS Feeds</b></span><br/>'
+output = u'<span id="ftitle"><b>RSS Feeds</b></span><br/>'
 
 urlre = re.compile('[a-zA-Z]+://[\S]+')
 
@@ -38,7 +39,7 @@ try:
 
 except:
 
-	print(u'<span class="error">Authentication Failure</span>')
+	output += u'<span class="error">Authentication Failure</span>'
 
 try:
 
@@ -68,7 +69,7 @@ for t in feed:
 
 		try:
 
-			tweet = re.sub(re.escape(u),'<a id="inline" target="_blank" href="'+u+'">'+u+'</a>', tweet)
+			tweet = re.sub(re.escape(u),u'<a id="inline" target="_blank" href="'+u+u'">'+u+u'</a>', tweet)
 
 		except:
 
@@ -86,8 +87,8 @@ for t in feed:
 
 			continue
 
-	tweet = tweet.encode("utf-8")
+	tweet = tweet.encode('utf-8')
 
-	output += '<div id="etitle">'+t['user']['screen_name']+'&lt; '+tweet+'</div>\n'
+	output += u'<div id="etitle">'+t['user']['screen_name'].encode('utf-8')+u'&lt; '+tweet+u'</div>\n'
 
 print(output)
