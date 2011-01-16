@@ -5,15 +5,15 @@ import twitter, sys, re, json
 
 from twitter.oauth import OAuth
 
-CACHE = u'/tmp/twitter.cache'
+CACHE = '/tmp/twitter.cache'
 
-output = u'<span id="ftitle"><b>RSS Feeds</b></span><br/>'
+output = '<span id="ftitle"><b>RSS Feeds</b></span><br/>'
 
 urlre = re.compile('[a-zA-Z]+://[\S]+')
 
-mailre = re.compile("[a-z,A-Z,.]+@[a-zA-Z_]+?\.[a-zA-Z]{2,6}")
+mailre = re.compile('[a-z,A-Z,.]+@[a-zA-Z_]+?\.[a-zA-Z]{2,6}')
 
-cred = open("/home/hax/haxwithaxe").read().split()
+cred = open('/home/hax/haxwithaxe').read().split()
 
 def stash_tweets(tweets):
 
@@ -39,7 +39,7 @@ try:
 
 except:
 
-	output += u'<span class="error">Authentication Failure</span>'
+	output += '<span class="error">Authentication Failure</span>'
 
 try:
 
@@ -87,8 +87,6 @@ for t in feed:
 
 			continue
 
-	tweet = tweet.encode('utf-8')
-
 	output += u'<div id="etitle">'+t['user']['screen_name'].encode('utf-8')+u'&lt; '+tweet+u'</div>\n'
 
-print(output)
+print(output.encode('utf-8'))
