@@ -11,7 +11,7 @@
 		<script type="text/javascript" src="/js/clock.js"></script>
 		<script type="text/javascript" src="/js/jquery.min.js"></script>
 		<script type="text/javascript">
-			setInterval(function(){$("#allrssdiv").load("/cgi-bin/twitfeed.py");}, 60000);
+			setInterval(function(){$("#feed").load("/cgi-bin/twitfeed.py");}, 60000);
 		</script>
 	</head>
 	<body>
@@ -58,7 +58,7 @@
 
 		<!-- run stuff once the whole page is loaded -->
 		<script type="text/javascript">
-			$("#allrssdiv").load("/cgi-bin/twitfeed.py");
+			$("#feed").load("/cgi-bin/twitfeed.py");
 		</script>
 	</body>
 </html>
