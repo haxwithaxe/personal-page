@@ -3,13 +3,11 @@
 # and redirect to the appropriate page.
 import cgi
 
-print('Content-Type: text/html')
-
 TMPL_DIR = '../tmpl/'
 
 CONTENT_DIR = '../content/'
 
-tmpl = open(TMPL_DIR+'page','r').read()
+tmpl = 'Content-Type: text/html\n\n\n'+open(TMPL_DIR+'page','r').read()
 
 lsidebar = open(TMPL_DIR+'lsidebar','r').read()
 
