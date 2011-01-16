@@ -7,7 +7,7 @@ from twitter.oauth import OAuth
 
 CACHE = '/tmp/twitter.cache'
 
-output = '<span id="ftitle"><b>RSS Feeds</b></span><br/>'
+output = 'Content-Type: text/html\n\n\n<span id="ftitle"><b>RSS Feeds</b></span><br/>'
 
 urlre = re.compile('[a-zA-Z]+://[\S]+')
 
