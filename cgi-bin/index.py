@@ -3,6 +3,8 @@
 # and redirect to the appropriate page.
 import cgi
 
+print('Content-Type: text/html')
+
 TMPL_DIR = '../tmpl/'
 
 CONTENT_DIR = '../content/'
@@ -24,7 +26,5 @@ else:
 	page = 'home'
 
 content = open(CONTENT_DIR+page,'r').read()
-
-print('Content-Type: text/html\n\n\n')
 
 print(tmpl.replace('<!--CONTENT-->',content).replace('<!--LSIDEBAR-->',lsidebar).replace('<!--RSIDEBAR-->',rsidebar))
