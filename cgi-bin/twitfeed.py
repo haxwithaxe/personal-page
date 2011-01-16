@@ -49,7 +49,7 @@ try:
 
 except:
 
-	#print(sys.exc_info())
+	sys.stderr.write(sys.exc_info())
 
 	try:
 
@@ -87,6 +87,6 @@ for t in feed:
 
 			continue
 
-	output += u'<div id="etitle">'+t['user']['screen_name'].encode('utf-8')+u'&lt; '+tweet+u'</div>\n'
+	output += u'<div id="etitle">'+t['user']['screen_name'].encode('utf-8')+u'&gt; '+tweet+u'</div>\n'
 
 print(output.encode('utf-8'))
