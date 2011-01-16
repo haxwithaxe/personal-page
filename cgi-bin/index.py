@@ -13,6 +13,8 @@ lsidebar = open(TMPL_DIR+'lsidebar','r').read()
 
 rsidebar = open(TMPL_DIR+'rsidebar','r').read()
 
+footer = open(TMPL_DIR+'footer','r').read()
+
 form = cgi.FieldStorage()
 
 if form.has_key('q'):
@@ -25,4 +27,4 @@ else:
 
 content = open(CONTENT_DIR+page,'r').read()
 
-print(tmpl.replace('<!--CONTENT-->',content).replace('<!--LSIDEBAR-->',lsidebar).replace('<!--RSIDEBAR-->',rsidebar))
+print(tmpl.replace('<!--CONTENT-->',content).replace('<!--LSIDEBAR-->',lsidebar).replace('<!--RSIDEBAR-->',rsidebar).replace('<!--FOOTER-->',footer))

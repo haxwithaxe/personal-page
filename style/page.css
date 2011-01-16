@@ -7,7 +7,7 @@ body {
    padding : 0;
    height : 100%;
    width : 100%;
-   background : #010101 url(/imgs/bg.png) no-repeat fixed 0 0;
+   background : #010101;
    background-size: 100%;
    color : lightgrey;
    font-variant : small-caps;
@@ -60,7 +60,7 @@ a:active {
    padding : 20;
 }
 div.frame {
-   background : url(/imgs/darkgreybox.gif) repeat;
+   background : darkgrey;
    background-size: 100%;
    width: 620px;
    height: 400px;
@@ -88,11 +88,19 @@ div#header-right {
    float: right;
 }
 div#left-col {
-   width: 350px;
+   width: 250px;
+   display: table-cell;
+   margin: auto;
+}
+div#right-col {
+   width: 150px;
    display: table-cell;
    margin: auto;
 }
 div#main-col {
    margin: auto;
    display: table-cell;
+}
+div#footer {
+   text-align: center;
 }
