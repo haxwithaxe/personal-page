@@ -25,6 +25,12 @@ else:
 
 	page = 'home'
 
-content = open(CONTENT_DIR+page,'r').read()
+try:
+
+	content = open(CONTENT_DIR+page,'r').read()
+
+except IOError:
+
+	content = open(CONTENT_DIR+'404').read()
 
 print(tmpl.replace('<!--CONTENT-->',content).replace('<!--LSIDEBAR-->',lsidebar).replace('<!--RSIDEBAR-->',rsidebar).replace('<!--FOOTER-->',footer))
