@@ -95,7 +95,8 @@ div#left-col {
 div#right-col {
    width: 150px;
    display: table-cell;
-   background: img(/imgs/axe-vertical.png);
+   background: url(/imgs/axe-vertical.png) no-repeat;
+   background-size: 100%;
    margin: auto;
 }
 div#main-col {
