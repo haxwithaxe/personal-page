@@ -9,7 +9,7 @@ CACHE = '/tmp/twitter.cache'
 
 output = 'Content-Type: text/html\n\n\n<span id="ftitle"><b>RSS Feeds</b></span><br/>'
 
-urlre = re.compile('[a-zA-Z]+://[\S,^\"\'“”]+')
+urlre = re.compile('[a-zA-Z]+://[\S^”]+')
 
 mailre = re.compile('[a-z,A-Z,.]+@[a-zA-Z_]+?\.[a-zA-Z]{2,6}')
 
